@@ -1,0 +1,11 @@
+---
+### base config by Ser@fin
+
+- hosts: all
+  become_user: root
+  become: yes
+  roles:
+    - base
+    # - etckeeper
+
+# vi: set expandtab

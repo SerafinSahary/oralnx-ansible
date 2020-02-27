@@ -1,0 +1,11 @@
+
+
+- name: swappiness setup
+  sysctl:
+    name: vm.swappiness
+    value: "{{ swappinesvalue }}"
+    state: present
+    sysctl_file: /etc/sysctl.d/30-swappiness.conf
+  tags: sysctl
+
+# vi: set expandtab:

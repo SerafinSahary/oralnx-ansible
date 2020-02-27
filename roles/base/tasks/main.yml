@@ -1,0 +1,28 @@
+---
+### base tasks
+
+- name: packages
+  import_tasks: packages.yml
+
+- name: environment setup
+  import_tasks: envsetup.yml
+
+- name: SSH setup
+  import_tasks: ssh.yml
+
+- name: directories privileges
+  file:
+    path: "{{ item }}"
+    state: directory
+    mode: '0751'
+  loop:
+    - /
+    - /etc
+    - /home
+    - /var
+    - /var/log
+
+- name: sysctl setup
+  import_tasks: sysctl.yml
+
+# vi: set expandtab:

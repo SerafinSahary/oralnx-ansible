@@ -1,0 +1,10 @@
+---
+### handlers
+
+- name: restart ssh
+  service:
+    name: sshd
+    state: restarted
+  tags: sshsetup
+
+# vi: set expandtab:

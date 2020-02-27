@@ -1,0 +1,35 @@
+---
+# variables for all hosts
+
+# sysctl
+swappinesvalue: "5"
+
+sshd_config:
+  - key: PermitRootLogin
+    val: "no"
+  - key: PasswordAuthentication
+    val: "yes"
+  - key: PermitEmptyPasswords
+    val: "no"
+  - key: ChallengeResponseAuthentication
+    val: "no"
+  - key: UsePAM
+    val: "yes"
+  - key: AllowAgentForwarding
+    val: "yes"
+  - key: AllowTcpForwarding
+    val: "yes"
+  - key: X11Forwarding
+    val: "no"
+  - key: AcceptEnv
+    val: "LANG LC_*"
+  - key: Subsystem
+    val: "sftp internal-sftp"
+
+# sshd_config_extra: |
+#     Match Group sftpaccess
+#       ChrootDirectory /srv/www
+#       ForceCommand internal-sftp -d %u
+#       AllowTcpForwarding no
+#       X11Forwarding no
+#       PasswordAuthentication yes
